@@ -1,13 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>adhd-constellation</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ADHD Constellation — Prototype</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="three-canvas"></canvas>
+
+    <!-- UI overlay for expanded panel -->
+    <div id="panel" class="hidden">
+      <button id="closePanel">✕</button>
+      <h2 id="panelTitle">Focus Panel</h2>
+      <div id="panelContent">
+        <p>This is the deep-focus panel for the selected orb. Put deep content here (notes, timer, mini tasks).</p>
+      </div>
+    </div>
+
+    <!-- small HUD / anchor -->
+    <div id="anchor">Home</div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
 </html>
