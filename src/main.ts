@@ -1,24 +1,18 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import { SceneManager } from "./scene/SceneManager";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const canvas = document.getElementById("three-canvas") as HTMLCanvasElement;
+const scene = new SceneManager(canvas);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// UI overlay
+const panel = document.getElementById("panel")!;
+const panelTitle = document.getElementById("panelTitle")!;
+const closePanel = document.getElementById("closePanel")!;
+scene.onSelect = (orb) => {
+  panelTitle.innerText = orb.label;
+  panel.classList.remove("hidden");
+};
+
+closePanel.addEventListener("click", () => {
+  panel.classList.add("hidden");
+});
